@@ -1,131 +1,195 @@
 html, body {
-  font-family: 'Roboto', sans-serif;
-  font-size:14px;
-  height:100%;
-  margin: 0px;
-  padding: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
 /* Toolbar area */
 
 .menu {
-  background-color: transparent;
-  border: none;
-  height: 38px;
-  margin: 16px;
-  width: 36px;
+    background-color: transparent;
+    border: none;
+    height: 38px;
+    margin: 16px;
+    width: 36px;
 }
 
-
 md-toolbar h3 {
-  margin: auto;
-  font-weight: 500;
+    margin: auto;
+    font-weight: 500;
 }
 
 /* Sidenav area */
 
 md-list-item > button {
-  width:100%;
-  text-align:left !important;
+    width: 100%;
+    text-align: left !important;
 }
 
-  md-list .md-button.selected {
+md-list .md-button.selected {
     color: #03a9f4;
-  }
+}
 
-  md-sidenav  md-list {
+md-sidenav md-list {
     padding: 0px 0px 8px 0px;
-  }
-
+}
 
 /* Primary content area */
 
 #content {
-  overflow: hidden;
+    overflow: hidden;
 }
 
-#content  {
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 5px;
+#content {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 5px;
 }
 
 #content .md-button.share {
-  background-color: transparent;
-  border: none;
-  width: 48px;
-  height: 48px;
-  margin: 8px auto 16px 0;
-  position: absolute;
-  top: 10px;
-  right: 25px;
+    background-color: transparent;
+    border: none;
+    width: 48px;
+    height: 48px;
+    margin: 8px auto 16px 0;
+    position: absolute;
+    top: 10px;
+    right: 25px;
 }
 
 #content md-icon.avatar {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 #content .md-button.share > md-icon {
-  fill:black;
-  width:36px;
-  height:36px;
+    fill: black;
+    width: 36px;
+    height: 36px;
 }
 
 md-button.menuBtn > md-icon {
-  fill:white;
-  width:24px;
-  height:24px;
+    fill: white;
+    width: 24px;
+    height: 24px;
 }
 
 #content .md-button.share:active > md-icon {
-  background-color: #dadada;
-  border-radius: 75%;
-  padding:4px;
-  transition: all 100ms ease-out 30ms;
+    background-color: #dadada;
+    border-radius: 75%;
+    padding: 4px;
+    transition: all 100ms ease-out 30ms;
 }
 
 #content img {
-  display: block;
-  height: auto;
-  max-width: 500px;
+    display: block;
+    height: auto;
+    max-width: 500px;
 }
 
 /* Utils */
 
 .content-wrapper {
-  position: relative;
+    position: relative;
 }
 
 /* Typography support coming in 0.8.0 */
 
 md-toolbar h1 {
-  font-size: 1.250em;
-  font-weight: 400;
+    font-size: 1.250em;
+    font-weight: 400;
 }
 
 .avatar {
-  position: relative;
-  width: 128px;
-  height: 128px;
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  display: inline-block;
-  overflow: hidden;
-  margin: 0px;
-  vertical-align: middle;
-  zoom:0.70;
-  transform: translateZ(0);
-  -webkit-transform: scale(0.70);
-  -moz-transform:scale(0.70);
+    position: relative;
+    width: 128px;
+    height: 128px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0px;
+    vertical-align: middle;
+    zoom: 0.70;
+    transform: translateZ(0);
+    -webkit-transform: scale(0.70);
+    -moz-transform: scale(0.70);
 }
 
-
-md-bottom-sheet  md-icon {
-  margin-right:20px;
+md-bottom-sheet md-icon {
+    margin-right: 20px;
 }
 
 span.name {
-  font-weight: bold;
-  font-size:1.1em;
-  padding-left:5px;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding-left: 5px;
+}
+
+/* ------------------------ */
+
+md-toolbar h1 {
+    margin-left: 20px;
+}
+
+.main-content {
+    max-height: 800px;
+}
+
+footer md-toolbar-tools {
+    padding: 40px;
+}
+footer ul {
+    list-style-type: none;
+    font-size: .8em;
+    padding-left: 0;
+}
+footer li a {
+    color: #ddd;
+    text-decoration: none;
+}
+footer li a:hover, footer li a:active {
+    color: white;
+    /*text-decoration: none;*/
+}
+.verti-links {
+    padding-bottom: 50px !important;
+}
+.verti-links ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.verti-links li+li {
+    margin-top: 6px;
+}
+.verti-links li {
+    padding: 3px 0;
+    margin-right: 50px;
+}
+.horiz-links li {
+    display: inline;
+    font-size: .9em;
+    padding-top: 0 !important;
+}
+.horiz-links li+li {
+    margin-left: 40px;
+}
+.footer-bottom-row {
+    border-top: 1px #ddd solid;
+    /*width: 100%;*/
+}
+.footer-bottom-row ul {
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+.footer-right {
+    float: right;
+}
+
+md-menu-bar > md-menu > button:not(.md-open) {
+    color: #ddd;
+}
+md-menu-bar > md-menu > button:hover:not(.md-open) {
+    color: white;
 }

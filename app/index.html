@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" >
-  <head>
+<html lang="en">
+<head>
     <title>Angular Material - Starter App</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
 
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
     <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css"/>
@@ -17,77 +17,291 @@
          * Hide when Angular is not yet loaded and initialized
          */
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-          display: none !important;
+            display: none !important;
         }
     </style>
 
-  </head>
+</head>
 
-  <body ng-app="starterApp" layout="column" ng-controller="UserController as ul" ng-cloak>
+<body ng-app="starterApp" layout="column" ng-controller="UserController as ul" ng-cloak>
 
-    <md-toolbar layout="row">
-      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
-        <md-icon md-svg-icon="menu" ></md-icon>
-      </md-button>
-      <h1>Angular Material - Starter App</h1>
-    </md-toolbar>
+<md-toolbar layout="row" flex="nogrow" layout-align="space-between center">
+    <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+        <md-icon md-svg-icon="menu"></md-icon>
+    </md-button>
+    <h1>Angular Material - Starter App</h1>
 
-    <div flex layout="row">
+    <md-menu-bar>
+        <md-menu>
+            <button ng-click="$mdOpenMenu()">
+                File
+            </button>
+            <md-menu-content>
+                <md-menu-item>
+                    <md-button ng-click="ul.sampleAction('share', $event)">
+                        Share...
+                    </md-button>
+                </md-menu-item>
+                <md-menu-divider></md-menu-divider>
+                <md-menu-item>
+                    <md-menu>
+                        <md-button ng-click="$mdOpenMenu()">New</md-button>
+                        <md-menu-content>
+                            <md-menu-item><md-button ng-click="ul.sampleAction('New Document', $event)">Document</md-button></md-menu-item>
+                            <md-menu-item><md-button ng-click="ul.sampleAction('New Spreadsheet', $event)">Spreadsheet</md-button></md-menu-item>
+                            <md-menu-item><md-button ng-click="ul.sampleAction('New Presentation', $event)">Presentation</md-button></md-menu-item>
+                            <md-menu-item><md-button ng-click="ul.sampleAction('New Form', $event)">Form</md-button></md-menu-item>
+                            <md-menu-item><md-button ng-click="ul.sampleAction('New Drawing', $event)">Drawing</md-button></md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-click="ul.sampleAction('Open', $event)">
+                        Open...
+                        <span class="md-alt-text"> {{ 'M-O' | keyboardShortcut }}</span>
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button disabled="disabled" ng-click="ul.sampleAction('Rename', $event)">
+                        Rename
+                    </md-button>
+                </md-menu-item>
+                <md-menu-divider></md-menu-divider>
+                <md-menu-item>
+                    <md-button ng-click="ul.sampleAction('Print', $event)">
+                        Print
+                        <span class="md-alt-text">{{ 'M-P' | keyboardShortcut }}</span>
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+        <md-menu>
+            <button ng-click="$mdOpenMenu()">
+                Edit
+            </button>
+            <md-menu-content>
+                <md-menu-item class="md-indent">
+                    <md-icon md-svg-icon="undo"></md-icon>
+                    <md-button ng-click="ul.sampleAction('undo', $event)">
+                        Undo
+                        <span class="md-alt-text">{{ 'M-Z' | keyboardShortcut }}</span>
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item class="md-indent">
+                    <md-icon md-svg-icon="redo"></md-icon>
+                    <md-button ng-click="ul.sampleAction('redo', $event)">
+                        Redo
+                        <span class="md-alt-text">{{ 'M-Y' | keyboardShortcut }}</span>
+                    </md-button>
+                </md-menu-item>
+                <md-menu-divider></md-menu-divider>
+                <md-menu-item class="md-indent">
+                    <md-icon md-svg-icon="content-cut"></md-icon>
+                    <md-button ng-click="ul.sampleAction('cut', $event)">
+                        Cut
+                        <span class="md-alt-text">{{ 'M-X' | keyboardShortcut }}</span>
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item class="md-indent">
+                    <md-icon md-svg-icon="content-copy"></md-icon>
+                    <md-button ng-click="ul.sampleAction('copy', $event)">
+                        Copy
+                        <span class="md-alt-text">{{ 'M-C' | keyboardShortcut }}</span>
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item class="md-indent">
+                    <md-icon md-svg-icon="content-paste"></md-icon>
+                    <md-button ng-click="ul.sampleAction('paste', $event)">
+                        Paste
+                        <span class="md-alt-text">{{ 'M-P' | keyboardShortcut }}</span>
+                    </md-button>
+                </md-menu-item>
+                <md-menu-divider></md-menu-divider>
+                <md-menu-item class="md-indent">
+                    <md-button ng-click="ul.sampleAction('Find and replace', $event)">
+                        Find and replace...
+                        <span class="md-alt-text">{{ 'M-S-H' | keyboardShortcut }}</span>
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+        <md-menu>
+            <button ng-click="$mdOpenMenu()">
+                View
+            </button>
+            <md-menu-content>
+                <md-menu-item type="checkbox" ng-model="ul.settings.printLayout">Print layout</md-menu-item>
+                <md-menu-item class="md-indent">
+                    <md-menu>
+                        <md-button ng-click="$mdOpenMenu()">Mode</md-button>
+                        <md-menu-content width="3">
+                            <md-menu-item type="radio" ng-model="ul.settings.presentationMode" value="'presentation'">Presentation</md-menu-item>
+                            <md-menu-item type="radio" ng-model="ul.settings.presentationMode" value="'edit'">Edit</md-menu-item>
+                            <md-menu-item type="radio" ng-model="ul.settings.presentationMode" value="'modifiable'">Modifiable</md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </md-menu-item>
+                <md-menu-divider></md-menu-divider>
+                <md-menu-item type="checkbox" ng-model="ul.settings.showRuler">Show ruler</md-menu-item>
+                <md-menu-item type="checkbox" ng-model="ul.settings.showEquationToolbar">Show equation toolbar</md-menu-item>
+                <md-menu-item type="checkbox" ng-model="ul.settings.showSpellingSuggestions">Show spelling suggestions</md-menu-item>
+                <md-menu-divider></md-menu-divider>
+                <md-menu-item type="checkbox" ng-model="ul.settings.compactControls">Compact controls</md-menu-item>
+                <md-menu-item type="checkbox" ng-model="ul.settings.fullScreen">Full screen</md-menu-item>
+            </md-menu-content>
+        </md-menu>
+        <md-menu>
+            <button ng-click="$mdOpenMenu()">
+                Format
+            </button>
+            <md-menu-content>
+                <md-menu-item>
+                    <md-button ng-click="ul.sampleAction('bold', $event)">
+                        Bold
+                        <span class="md-alt-text"> {{ 'M-B' | keyboardShortcut }}</span>
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-click="ul.sampleAction('italic', $event)">
+                        Italic
+                        <span class="md-alt-text">{{ 'M-I' | keyboardShortcut }}</span>
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-click="ul.sampleAction('underline', $event)">
+                        Underline
+                        <span class="md-alt-text">{{ 'M-U' | keyboardShortcut }}</span>
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-click="ul.sampleAction('strikethrough', $event)">
+                        Strikethrough
+                        <span class="md-alt-text">{{ 'A-S-5' | keyboardShortcut }}</span>
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-click="ul.sampleAction('superscript', $event)">
+                        Superscript
+                        <span class="md-alt-text">{{ 'M-.' | keyboardShortcut }}</span>
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-click="ul.sampleAction('subscript', $event)">
+                        Subscript
+                        <span class="md-alt-text">{{ 'M-,' | keyboardShortcut }}</span>
+                    </md-button>
+                </md-menu-item>
+                <md-menu-divider></md-menu-divider>
+                <md-menu-item><md-button ng-click="ul.toggleSetting('clearFormatting')">Clear Formatting</md-button></md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </md-menu-bar>
 
-        <md-sidenav  ng-click="ul.toggleList()" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
-          <md-list>
-            <md-list-item ng-repeat="it in ul.users">
+</md-toolbar>
+
+<div flex="noshrink" layout="row" class="main-content">
+
+    <md-sidenav ng-click="ul.toggleList()" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left"
+                class="md-whiteframe-z2">
+        <md-list>
+            <md-list-item ng-repeat="it in ul.users track by $index">
                 <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
-                  <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
-                  {{it.name}}
+                    <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
+                    {{it.name}}
                 </md-button>
             </md-list-item>
-          </md-list>
-        </md-sidenav>
+        </md-list>
+    </md-sidenav>
 
-        <md-content flex id="content">
-          <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
-          <h2>{{ul.selected.name}}</h2>
-          <p>{{ul.selected.content}}</p>
+    <md-content flex id="content">
+        <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
+        <h2>{{ul.selected.name}}</h2>
+        <p>{{ul.selected.content}}</p>
 
-          <md-button class="share" md-no-ink ng-click="ul.makeContact(ul.selected)" aria-label="Share with {{ ul.selected.name }}">
+        <md-button class="share" md-no-ink ng-click="ul.makeContact(ul.selected)"
+                   aria-label="Share with {{ ul.selected.name }}">
             <md-icon md-svg-icon="share"></md-icon>
-          </md-button>
-        </md-content>
+        </md-button>
+    </md-content>
 
-    </div>
+</div>
 
-    <script src="../node_modules/angular/angular.js"></script>
-    <script src="../node_modules/angular-animate/angular-animate.js"></script>
-    <script src="../node_modules/angular-aria/angular-aria.js"></script>
-    <script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
+<footer>
+    <md-toolbar>
+        <md-toolbar-tools layout="column">
+            <div layout="row" class="verti-links">
+                <ul layout="column">
+                    <li><a href="#">Corporate Info</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">We're Listening</a></li>
+                </ul>
+                <ul layout="column">
+                    <li><a href="#">XactContents Online</a></li>
+                    <li><a href="#">Xactimate Online</a></li>
+                    <li><a href="#">ISO ClaimSearch</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom-row" layout="row">
+                <ul class="horiz-links" flex>
+                    <li><a href="#">&copy; 2017 Xactware Solutions, Inc. All Rights Reserved.</a></li>
+                    <li class="footer-right"><a href="#">System Requirements</a></li>
+                    <li class="footer-right"><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </md-toolbar-tools>
+    </md-toolbar>
+</footer>
 
-    <script src="./src/users/Users.js"></script>
-    <script src="./src/users/UserController.js"></script>
-    <script src="./src/users/UserService.js"></script>
+<script src="../node_modules/angular/angular.js"></script>
+<script src="../node_modules/angular-animate/angular-animate.js"></script>
+<script src="../node_modules/angular-aria/angular-aria.js"></script>
+<script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
 
-    <script type="text/javascript">
+<script src="./src/users/Users.js"></script>
+<script src="./src/users/UserController.js"></script>
+<script src="./src/users/UserService.js"></script>
 
-          angular
-              .module('starterApp', ['ngMaterial', 'users'])
-              .config(function($mdThemingProvider, $mdIconProvider){
+<script type="text/javascript">
 
-                  $mdIconProvider
-                      .defaultIconSet("./assets/svg/avatars.svg", 128)
-                      .icon("menu"       , "./assets/svg/menu.svg"        , 24)
-                      .icon("share"      , "./assets/svg/share.svg"       , 24)
-                      .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
-                      .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
-                      .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
-                      .icon("phone"      , "./assets/svg/phone.svg"       , 512);
+    angular
+        .module('starterApp', ['ngMaterial', 'users'])
+        .config(function ($mdThemingProvider, $mdIconProvider) {
 
-                      $mdThemingProvider.theme('default')
-                          .primaryPalette('brown')
-                          .accentPalette('red');
+            $mdIconProvider
+//                .defaultIconSet('img/icons/sets/core-icons.svg', 24)
+                .defaultIconSet("./assets/svg/avatars.svg", 128)
+                .icon("menu", "./assets/svg/menu.svg", 24)
+                .icon("share", "./assets/svg/share.svg", 24)
+                .icon("google_plus", "./assets/svg/google_plus.svg", 512)
+                .icon("hangouts", "./assets/svg/hangouts.svg", 512)
+                .icon("twitter", "./assets/svg/twitter.svg", 512)
+                .icon("phone", "./assets/svg/phone.svg", 512);
 
-              });
+            $mdThemingProvider.theme('default')
+                .primaryPalette('brown')
+                .accentPalette('red');
 
-    </script>
+        })
 
-  </body>
+        .filter('keyboardShortcut', function($window) {
+            return function(str) {
+                if (!str) return;
+                var keys = str.split('-');
+                var isOSX = /Mac OS X/.test($window.navigator.userAgent);
+                var seperator = (!isOSX || keys.length > 2) ? '+' : '';
+                var abbreviations = {
+                    M: isOSX ? '⌘' : 'Ctrl',
+                    A: isOSX ? 'Option' : 'Alt',
+                    S: 'Shift'
+                };
+                return keys.map(function(key, index) {
+                    var last = index == keys.length - 1;
+                    return last ? key : abbreviations[key];
+                }).join(seperator);
+            };
+        });
+
+</script>
+
+</body>
 </html>
